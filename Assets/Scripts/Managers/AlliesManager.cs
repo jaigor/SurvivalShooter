@@ -56,8 +56,6 @@ public class AlliesManager : MonoBehaviour {
 			ally.activeSelf == true)
 		{
 			ally.SetActive(false);
-			//bb8Movement.clearColliders();
-			bb8Movement.FindEnemy();
 		}
 	}
 		

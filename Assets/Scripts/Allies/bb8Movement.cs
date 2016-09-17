@@ -13,8 +13,6 @@ public class bb8Movement : MonoBehaviour {
 	AudioSource audio;
 	Animator anim;
 
-	Collider[] hitColliders;
-
 	void Awake () 
 	{
 		player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -34,8 +32,7 @@ public class bb8Movement : MonoBehaviour {
 
 	public void FindEnemy()
 	{
-		//Collider[] hitColliders = Physics.OverlapSphere(player.position, radiusOfPlayer, _collisionLayer); 
-		hitColliders = Physics.OverlapSphere(player.position, radiusOfPlayer, _collisionLayer);
+		Collider[] hitColliders = Physics.OverlapSphere(player.position, radiusOfPlayer, _collisionLayer); 
 
 		if (hitColliders.Length == 0) 
 		{
@@ -48,15 +45,6 @@ public class bb8Movement : MonoBehaviour {
 			{
 				PursueEnemy(hitColliders[i].gameObject.transform.position);
 			}
-		}
-	}
-
-	public void clearColliders()
-	{
-		Debug.Log ("Clear");
-		for (int i = 0; i > hitColliders.Length; i++)
-		{
-			hitColliders [i] = null;
 		}
 	}
 
@@ -78,6 +66,6 @@ public class bb8Movement : MonoBehaviour {
 
 	void Moving(bool isMoving)
 	{
-		anim.SetBool ("isMoving", isMoving);
+			anim.SetBool ("isMoving", isMoving);
 	}
 }
