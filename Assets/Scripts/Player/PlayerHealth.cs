@@ -94,11 +94,16 @@ public class PlayerHealth : MonoBehaviour
 
         playerMovement.enabled = false;	// stops getting inputs for player movement
         playerShooting.enabled = false;
+
+		if (Input.GetKeyDown (KeyCode.Mouse0)) 
+		{
+			RestartLevel ();
+		}
     }
 
 
     public void RestartLevel ()
     {
-        SceneManager.LoadScene (01);
+        SceneManager.LoadScene (0);
     }
 }
